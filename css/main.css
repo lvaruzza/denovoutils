@@ -31,3 +31,10 @@
     border-width: 1px;
     border-color: gray;
 }
+
+#copyright {
+    text-align: center;
+    font-size: small;
+    margin-top: 10ex;
+    width: 100%;
+}

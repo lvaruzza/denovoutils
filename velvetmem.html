@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{%block title%}De Novo Tools: VelvetMem {% endblock %} 
+
+{%block header%}Velvet Memory Calculator{% endblock %}
+
+{%block contents %}
+
+{% if mem %}
+<div id="velvetMem">
+  <h2>Memory Usage and Coverage</h2>
+  <table>
+    <tr>
+      <td>Memory</td>
+      <td>{{mem_gb}} Gb</td>
+    </tr>
+
+    <tr>
+      <td>Coverage</td>
+      <td>{{cov|floatformat:1}}x</td>
+    </tr>
+
+  </table>
+</div>
+<hr>
+{% endif %}
+
+<div class="form">
+  <h2>Inform the De Novo parameters:</h2>
+  <form action="/velvetmem" method="post">
+    <table>
+
+      <tr>
+	<td>Read Size</td>
+	<td><input type="text" name="readSize" value="{{readSize}}" /></td>
+	<td>Read size in bp (base pairs)</td>
+      </tr>
+
+      <tr>
+	<td>Genome Size</td>
+	<td><input type="text" name="genomeSize" value="{{genomeSize}}" /></td>
+	<td>Genome size in Mbp (megabase pairs)</td>
+      </tr>
+
+      <tr>
+	<td>Number of reads</td>
+	<td><input type="text" name="numReads" value="{{numReads}}" /></td>
+	<td>Number of reads in millions</td>
+      </tr>
+
+      <tr>
+	<td>k</td>
+	<td><input type="text" name="k" value="{{k}}" /></td>
+	<td>k-mer size (parameter of Velvet)</td>
+      </tr>
+
+    </table>
+    <div><input type="submit" /></div>
+  </form>
+</div>
+
+
+<p> This memory usage calculation is based on the information provided
+by <a href="http://seqanswers.com/forums/showthread.php?t=2101"> this
+thread</a> in <a href="http://seqanswers.com/">SEQAnswers</a> forum.
+</p>
+
+{% endblock %}

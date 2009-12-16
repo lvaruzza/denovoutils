@@ -1,0 +1,44 @@
+<html>
+<header>
+  <title>{% block title %}De Novo Tools{% endblock %}</title>
+  <link rel="stylesheet" type="text/css" href="css/main.css" />
+</header>
+<body>
+
+  <div id="header">
+    <h1>{%block header%}{% endblock %}</h1>
+  </div>
+
+  <div id="menu">
+    <p>
+      <a href="/">Home</a>
+    </p>
+    <hr>
+    <p>
+      <a href="/velvetmem">Velvet Memory Calculator</a>
+    </p>
+
+<!--
+    <p>
+      <a href="/static/not-implemented.html">Slide Calculator</a>
+    </p>
+-->
+  </div>
+  <div id="contents">
+    {%block contents %}{%endblock %}
+  </div>
+
+<!-- 
+{% if backurl %}
+<div class="back">
+  <a href="{{backrul}}">back</a>
+</div>
+{% endif %}
+-->
+
+<div id="copyright">
+  Copyright <a href="www.google.com/profiles/varuzza">Leonardo Varuzza</a>
+</div>
+
+</body>
+</html>
