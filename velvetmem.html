@@ -6,57 +6,52 @@
 
 {%block contents %}
 
-{% if mem %}
-<div id="velvetMem">
-  <h2>Memory Usage and Coverage</h2>
-  <table>
-    <tr>
-      <td>Memory</td>
-      <td>{{mem_gb}} Gb</td>
-    </tr>
-
-    <tr>
-      <td>Coverage</td>
-      <td>{{cov|floatformat:1}}x</td>
-    </tr>
-
-  </table>
-</div>
-<hr>
-{% endif %}
 
 <div class="form">
-  <h2>Inform the De Novo parameters:</h2>
-  <form action="/velvetmem" method="post">
+  <h2>Inform the De Novo parameters:</h2>  
     <table>
 
       <tr>
 	<td>Read Size</td>
-	<td><input type="text" name="readSize" value="{{readSize}}" /></td>
+	<td><input id="txtReadSize" class="textbox"  type="text" name="readSize" value="50" /></td>
 	<td>Read size in bp (base pairs)</td>
       </tr>
 
       <tr>
 	<td>Genome Size</td>
-	<td><input type="text" name="genomeSize" value="{{genomeSize}}" /></td>
+	<td><input id="txtGenomeSize" class="textbox" type="text" name="genomeSize" value="5.0" /></td>
 	<td>Genome size in Mbp (megabase pairs)</td>
       </tr>
 
       <tr>
 	<td>Number of reads</td>
-	<td><input type="text" name="numReads" value="{{numReads}}" /></td>
-	<td>Number of reads in millions</td>
+	<td><input id="txtNumReads" class="textbox" type="text" name="numReads" value="200" /></td>
+	<td>Number of reads in millions(integer number)</td>
       </tr>
 
       <tr>
 	<td>k</td>
-	<td><input type="text" name="k" value="{{k}}" /></td>
+	<td><input id="txtK" class="textbox" type="text" name="k" value="23" /></td>
 	<td>k-mer size (parameter of Velvet)</td>
       </tr>
 
     </table>
-    <div><input type="submit" /></div>
-  </form>
+    <div><button id="btnSubmit" onclick="launchVelvetMem()">Submit</button> <!--<input type="submit" />--></div>
+	<hr>
+	<div id="velvetMem" style="visibility:hidden;">
+	  <h2>Memory Usage and Coverage</h2>
+	  <table>
+	    <tr>
+	      <td>Memory</td>
+	      <td><span id="spMemory" ></span> Gb</td>
+	    </tr>
+	    <tr>
+	      <td>Coverage</td>
+	      <td><span id="spCoverage"></span>x</td>
+	    </tr>
+
+	  </table>
+	</div>
 </div>
 
 
